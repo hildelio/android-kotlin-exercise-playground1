@@ -1,7 +1,15 @@
 fun calculateConsumerPrice(factoryCost: Double): Double {
-    TODO("Use essa função para desenvolver sua lógica")
+    return if (factoryCost <= 12000) {
+        factoryCost * 1.05
+    } else if (factoryCost > 12000 && factoryCost <= 25000) {
+        factoryCost * 1.25
+    } else {
+        factoryCost * 1.35
+    }
 }
 
 fun main() {
-    TODO("Use essa função para rodar o codigo principal")
+    calculateConsumerPrice(10000.0)
+    calculateConsumerPrice(15000.0)
+    calculateConsumerPrice(30000.0)
 }
