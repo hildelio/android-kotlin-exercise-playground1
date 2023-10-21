@@ -1,7 +1,9 @@
 fun calculateDiscount(originalPrice: Double): Double {
-    TODO("Use essa função para desenvolver sua lógica")
+    val discount = 0.1
+    val discountedValue = originalPrice * discount
+    return originalPrice - discountedValue
 }
 
 fun main() {
-    TODO("Use essa função para rodar o codigo principal")
+    calculateDiscount(100.0)
 }
