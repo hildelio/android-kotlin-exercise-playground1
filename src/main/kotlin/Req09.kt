@@ -1,29 +1,18 @@
-import java.util.*
-fun calculateFinalPrice(carValue: Double, installment: Int, surcharges: Array<Double>): Any {
+import java.text.DecimalFormat
+import kotlin.math.round
+import kotlin.math.roundToInt
+
+fun calculateFinalPrice(carValue: Double, installment: Int, surcharges: Array<Double>): Double {
     val result = when (installment) {
-        1 -> {
-            carValue * 0.8
-        }
-        in 2..12 -> {
-            carValue * (1 + surcharges[0])
-        }
-        in 13..24 -> {
-            carValue * (1 + surcharges[1])
-        }
-        in 25..36 -> {
-            carValue * (1 + surcharges[2])
-        }
-        in 37..48 -> {
-            carValue * (1 + surcharges[3])
-        }
-        in 49..60 -> {
-            carValue * (1 + surcharges[4])
-        }
-        else -> {
-            throw IllegalArgumentException("Quantidade de Parcelas não permitida")
-        }
+        1 -> carValue * 0.8
+        in 2..12 -> carValue * (1 + surcharges[0])
+        in 13..24 -> carValue * (1 + surcharges[1])
+        in 25..36 -> carValue * (1 + surcharges[2])
+        in 37..48 -> carValue * (1 + surcharges[3])
+        in 49..60 -> carValue * (1 + surcharges[4])
+        else -> throw IllegalArgumentException("Quantidade de Parcelas não permitida")
     }
-    return String.format(Locale.US, "%.1f", result)
+    return result.roundToInt().toDouble()
 }
 
 fun main() {
